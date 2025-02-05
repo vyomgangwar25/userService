@@ -39,7 +39,7 @@ public class TestProjectApplication {
 //		t1.start();
 //
 //		try {
-////			t1.join();
+// 			t1.join();
 //			t1.sleep(3000);
 //		} catch (InterruptedException e) {
 //
@@ -77,13 +77,13 @@ public class TestProjectApplication {
 //		thread1.setPriority(Thread.MAX_PRIORITY);
 //		thread2.setPriority(Thread.MIN_PRIORITY);
 //
-////		thread1.start();
-////		thread2.start();
-////	
-////		System.out.println("state of thread after start--->" + thread1.getState());
+//		thread1.start();
+//		thread2.start();
+//	
+//		System.out.println("state of thread after start--->" + thread1.getState());
 //
-////		 Thread t2=new Thread(thread2);
-////		 t2.start();
+//		 Thread t2=new Thread(thread2);
+//		 t2.start();
 //		thread1.start();
 //		thread2.start();
 //

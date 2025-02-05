@@ -57,10 +57,10 @@ public class UserService {
 		response.setUserDTO(userdataDTO);
 		String url = "http://localhost:8080/department/list/" + user.getDepartmentId();
 		/***
-		 *the main difference between getForObject() and getForEntity() is
-		 * the type of data returned. getForObject() returns the resource directly,
-		 * while getForEntity() returns a ResponseEntity object that includes the
-		 * resource and status code
+		 * the main difference between getForObject() and getForEntity() is the type of
+		 * data returned. getForObject() returns the resource directly, while
+		 * getForEntity() returns a ResponseEntity object that includes the resource and
+		 * status code
 		 * 
 		 * ResponseEntity<DepartmentDTO> res=restTemplate.getForEntity(url,
 		 * DepartmentDTO.class); System.out.println(res);
