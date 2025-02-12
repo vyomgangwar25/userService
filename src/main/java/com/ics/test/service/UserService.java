@@ -56,6 +56,7 @@ public class UserService {
 		UserDTO userdataDTO = new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail());
 		response.setUserDTO(userdataDTO);
 		String url = "http://localhost:8080/department/list/" + user.getDepartmentId();
+		String url2="http://localhost:8080/user/open";
 		/***
 		 * the main difference between getForObject() and getForEntity() is the type of
 		 * data returned. getForObject() returns the resource directly, while
