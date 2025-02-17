@@ -39,7 +39,7 @@ class BankAccount {
 			for (int i = 0; i < 3; i++) {
 				account.withdraw(100);
 				try {
-					Thread.sleep(100); // Simulate some delay
+					Thread.sleep(100); // some delay
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -48,15 +48,27 @@ class BankAccount {
 
 		// Start both threads
 		t1.start();
-		t2.start();
-
-		// Wait for threads to finish
 		try {
 			t1.join();
-			t2.join();
 		} catch (InterruptedException e) {
+
 			e.printStackTrace();
 		}
+		t2.start();
+		try {
+			t2.join();
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+//		// Wait for threads to finish
+//		try {
+//			t1.join();
+//			t2.join();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 
 		// Print final balance
 		System.out.println("Final Balance: " + account.getBalance());

@@ -8,14 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Main class
  * @author Vyom Gangwar
- * @since 29-jan-2025
+ 
  * 
  * **/
 @SpringBootApplication
 public class TestProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TestProjectApplication.class, args);
-
 	}
 }
 

@@ -1,7 +1,7 @@
 package com.ics.test.practice;
 
 public class SynchronizationTest {
-	private Integer count = 0;
+	private Integer count = 0;  //shared resource
 
 	public   void setCount() {
 		count = count + 1;
@@ -18,10 +18,12 @@ public class SynchronizationTest {
 				obj.setCount();
 			}
 		});
-		Thread t2 = new Thread();
-		for (int j = 0; j < 1000; j++) {
-			obj.setCount();
-		}
+		Thread t2 = new Thread(()->{
+			for (int j = 0; j < 1000; j++) {
+				obj.setCount();
+			}
+		});
+		
 		t1.start();
 		try {
 			t1.join();
@@ -38,7 +40,7 @@ public class SynchronizationTest {
 		}
 		/**
 		 * in this case it will print any no because both thread try to increse the
-		 * value of count at sane time .this may give different result everytime. to
+		 * value of count at same time .this may give different result everytime. to
 		 * solve this problem either we use Join() or synchronization.
 		 */
 

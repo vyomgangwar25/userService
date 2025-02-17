@@ -9,7 +9,6 @@ import com.ics.test.entity.User;
  * user repository
  * 
  * @author Vyom Gangwar
- * @Since 29-jan-2025
  * 
  **/
 @Repository

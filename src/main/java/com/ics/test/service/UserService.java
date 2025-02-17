@@ -28,8 +28,8 @@ public class UserService {
 	 **/
 
 	public ResponseEntity<String> register(User userdata) {
-//		User newUser=mapper.map(userdata, User.class);
-		User newUser = new User(userdata.getId(), userdata.getFirstName(), userdata.getLastName(), userdata.getEmail(),
+
+		User newUser = new User(userdata.getFirstName(), userdata.getLastName(), userdata.getEmail(),
 				userdata.getDepartmentId());
 		repository.save(newUser);
 		return ResponseEntity.ok("user saved" + newUser);
@@ -45,7 +45,7 @@ public class UserService {
 	 * 
 	 * 
 	 **/
-	public ResponseEntity<?> list(Integer id) {
+	public ResponseEntity<ResponseDTO> list(Integer id) {
 		ResponseDTO response = new ResponseDTO();
 		/**
 		 * The RestTemplate will return a response object containing the data received
@@ -56,7 +56,7 @@ public class UserService {
 		UserDTO userdataDTO = new UserDTO(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail());
 		response.setUserDTO(userdataDTO);
 		String url = "http://localhost:8080/department/list/" + user.getDepartmentId();
-		String url2="http://localhost:8080/user/open";
+
 		/***
 		 * the main difference between getForObject() and getForEntity() is the type of
 		 * data returned. getForObject() returns the resource directly, while
@@ -67,7 +67,6 @@ public class UserService {
 		 * DepartmentDTO.class); System.out.println(res);
 		 **/
 		DepartmentDTO responseEntity = restTemplate.getForObject(url, DepartmentDTO.class);
-
 		response.setDepartmentDTO(responseEntity);
 		return ResponseEntity.ok(response);
 	}
